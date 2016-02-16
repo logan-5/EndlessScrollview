@@ -170,6 +170,7 @@
 
 @implementation CCScrollView {
 	BOOL _decelerating;
+    int _newHorizontalPage, _newVerticalPage;
 
 #if __CC_PLATFORM_MAC
 	CGPoint _lastPosition;
@@ -431,11 +432,13 @@
 - (void) xAnimationDone
 {
     _animatingX = NO;
+    _horizontalPage = _newHorizontalPage;
 }
 
 - (void) yAnimationDone
 {
     _animatingY = NO;
+    _verticalPage = _newVerticalPage;
 }
 
 - (CGPoint) scrollPosition
@@ -657,7 +660,7 @@
             }
             
             pageX = clampf(pageX, 0, self.numHorizontalPages -1);
-            _horizontalPage = pageX;
+            _newHorizontalPage = pageX;
             
             posTarget.x = pageX * self.contentSizeInPoints.width;
             
@@ -671,7 +674,7 @@
             }
             
             pageY = clampf(pageY, 0, self.numVerticalPages -1);
-            _verticalPage = pageY;
+            _newVerticalPage = pageY;
             
             posTarget.y = pageY * self.contentSizeInPoints.height;
             

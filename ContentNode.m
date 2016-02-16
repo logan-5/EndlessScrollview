@@ -22,6 +22,8 @@
         [self addChild:[CCSprite spriteWithImageNamed:@"sprites/1.png"]];
         [self addChild:[CCSprite spriteWithImageNamed:@"sprites/2.png"]];
         [self addChild:[CCSprite spriteWithImageNamed:@"sprites/3.png"]];
+        [self addChild:[CCSprite spriteWithImageNamed:@"sprites/4.png"]];
+        [self addChild:[CCSprite spriteWithImageNamed:@"sprites/5.png"]];
     }
     return self;
 }
